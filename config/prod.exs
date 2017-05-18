@@ -18,6 +18,11 @@ config :phoenixApi, PhoenixApi.Endpoint,
   secret_key_base: System.get_evn("SECRET_KEY_BASE"),
   cache_static_manifest: "priv/static/manifest.json"
 
+config :phoenixApi, PhoenixApi.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("postgres://obcddnqgwomfqc:f922e7aa96f823a40f580866bdf9c444e455e970d4fc9752795716ebed5b553b@ec2-23-23-228-115.compute-1.amazonaws.com:5432/d8f6a4cmvl22s4"),
+  pool_size: 20
+
 # Do not print debug messages in production
 config :logger, level: :info
 

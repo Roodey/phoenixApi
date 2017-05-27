@@ -4,6 +4,6 @@ defmodule PhoenixApi.SessionController do
   def index(conn,_params) do
 
   conn |> 
-  json(%{status: "derp"})
+  json(%{status: "Ok"})
   end
 end

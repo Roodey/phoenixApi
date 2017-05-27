@@ -13,14 +13,14 @@ use Mix.Config
 # which you typically run after static files are built.
 config :phoenixApi, PhoenixApi.Endpoint,
   http: [port: {:system, "PORT"}],
-  # force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  url: [host: "https://pacific-lake-83262.herokuapp.com", port: 80],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  url: [host: "https://pacific-lake-83262.herokuapp.com", port: 443],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  cache_static_manifest: "priv/static/manifest.json"
+  #cache_static_manifest: "priv/static/manifest.json"
 
 config :phoenixApi, PhoenixApi.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
+  url: System.get_env("DATABASE_URL") ,
   pool_size: 20
 
 # Do not print debug messages in production

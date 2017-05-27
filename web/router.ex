@@ -7,6 +7,8 @@ defmodule PhoenixApi.Router do
 
   scope "/api", PhoenixApi do
     pipe_through :api
+    post "/register", RegistrationController, :create
+    
     resources "/session", SessionController, only: [:index]
   end
 end

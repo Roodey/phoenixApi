@@ -6,7 +6,7 @@ defmodule PhoenixApi.RegistrationController do
     def create(conn, %{"data" => %{"type" => "users",
         "attributes" => %{"email" => email,
                           "password" => password,
-                          "password_confirmation" => password_confirmation}}}) do
+                          "password-confirmation" => password_confirmation}}}) do
         changeset = User.changeset %User{}, %{
             email: email,
             password_confirmation: password_confirmation,
@@ -18,10 +18,10 @@ defmodule PhoenixApi.RegistrationController do
                 conn 
                 |> put_status(:created)
                 |> render(PhoenixApi.UserView, "show.json", user: user)
-                {:error, changeset} ->
-                    conn
-                    |> put_status(:unprocesable_entity)
-                    |> render(PhoenixApi.ChangesetView, "error.json", changeset: changeset)
+            {:error, changeset} ->
+                conn
+                |> put_status(:unprocessable_entity)
+                |> render(PhoenixApi.ChangesetView, "error.json", changeset: changeset)
         end
     end
 

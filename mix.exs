@@ -37,6 +37,8 @@ defmodule PhoenixApi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:cors_plug, "~> 1.1"},
+
+     {:ja_serializer, "~> 0.12.0"},
      {:comeonin, "~> 3.0.2"},
      {:guardian, "~> 0.14.0"}]
   end

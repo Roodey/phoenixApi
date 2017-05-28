@@ -1,7 +1,7 @@
 defmodule PhoenixApi.User do
   use PhoenixApi.Web, :model
 
-  schema "user" do
+  schema "users" do
     field :email, :string
     field :password_hash, :string
 

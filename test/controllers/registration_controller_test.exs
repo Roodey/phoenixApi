@@ -4,9 +4,9 @@ defmodule PhoenixApi.RegistrationControllerTest do
     alias PhoenixApi.User
 
     @valid_attrs %{
-        email: "joey@example.com",
-        password:  "fqhi12hrrfasf",
-        password_confirmation:  "fqhi12hrrfasf"
+        "email":  "joey@example.com",
+        "password":  "fqhi12hrrfasf",
+        "password-confirmation":   "fqhi12hrrfasf"
     }
 
     @invalid_attrs %{}

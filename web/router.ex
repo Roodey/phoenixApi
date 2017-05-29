@@ -13,7 +13,7 @@ defmodule PhoenixApi.Router do
 
   scope "/api", PhoenixApi do
     pipe_through :api
-    post "/register", RegistrationController, :create
+    post "/users", RegistrationController, :create
     
     post "/token", SessionController, :create, as: :login
   end

@@ -7,13 +7,13 @@ defmodule PhoenixApi.Router do
 
   pipeline :api_auth do
     plug :accepts, ["json", "json-api"]
-    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource
   end
 
   scope "/api", PhoenixApi do
     pipe_through :api
-    post "/users", RegistrationController, :create
+    post "/register", RegistrationController, :create
     
     post "/token", SessionController, :create, as: :login
   end

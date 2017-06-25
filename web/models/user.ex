@@ -4,6 +4,8 @@ defmodule PhoenixApi.User do
   schema "users" do
     field :email, :string
     field :password_hash, :string
+    
+
 
     #Two virtual fields for password confirmation
     field :password, :string, virtual: true

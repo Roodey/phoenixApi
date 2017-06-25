@@ -11,6 +11,7 @@ defmodule PhoenixApi.Router do
     plug Guardian.Plug.LoadResource
   end
 
+#The authentication layer, handles registration and token hand outs.
   scope "/api", PhoenixApi do
     pipe_through :api
     post "/register", RegistrationController, :create
@@ -18,8 +19,14 @@ defmodule PhoenixApi.Router do
     post "/token", SessionController, :create, as: :login
   end
 
+#The application's outer layer, still authenticated but not within the app.
   scope "/api", PhoenixApi do
     pipe_through :api_auth
     get "/user/current", UserController, :current
+
+    get "/ideas", IdeaController, :all
+    post "/ideas", IdeaController, :create
   end
+
+
 end
